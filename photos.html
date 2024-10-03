@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/photos.css">
+    <title>-Love, A.B</title>
+
+    <style>
+      body{
+        background-image: url(scratch.jpg);
+        background-blend-mode:overlay;
+        background-size:100%;
+      }
+    </style>
+</head>
+
+<body>
+
+  <div class="section"> 
+    <ul>
+        
+        <li><a href="landing.html" button class="nav-button">Home</a></li>
+        
+    </ul>
+    
+  </div>
+  
+    <div class="polaroid-camera">
+        <button id="main-button"></button>
+        <div id="circle"></div>
+        <div class="lens">
+          <div class="reflection"></div>
+        </div>
+        <div class="flash"></div>
+        <div class="stripes"></div>
+        <div class="bottom">
+          <div class="bottom-front"></div>
+        </div>
+        <div class="slot"></div>
+        <div class="shadow"></div>
+        <div id="photo" class="photo">
+          <img id="photo-image" src="photos/image 1.PNG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 1.PNG" alt="" height="160px" width="170px">
+
+          <img id="photo-image" src="photos/image 2.JPG" alt="" height="400px" width="400px">
+          <img id="photo-image" src="photos/image 3.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 4.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 5.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 6.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 7.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 8.jpg" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 9.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 10.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 11.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 12.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 13.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 14.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 15.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 16.JPG" alt="" height="160px" width="170px">
+          <img id="photo-image" src="photos/image 17.JPG" alt="" height="160px" width="170px">
+          </div>
+
+          <div id="popup" class="hidden">
+            <p> You have ran out of new film! To make more memories contact Alianna Ahmad.
+              <button class="close-button">Close</button></p>
+
+          </div>
+          
+
+        </div>
+    
+
+      
+      
+
+      <script> 
+        let light = document.getElementById('circle');
+        let eject = document.getElementById('photo');
+        let photoArray = [
+          'photos/image 1.PNG',
+          'photos/image 1.PNG',
+          'photos/image 2.JPG',
+          'photos/image 3.JPG',
+          'photos/image 4.JPG',
+          'photos/image 5.JPG',
+          'photos/image 6.JPG',
+          'photos/image 7.JPG',
+          'photos/image 8.JPG',
+          'photos/image 9.JPG',
+          'photos/image 10.JPG',
+          'photos/image 11.JPG', 'photos/image 12.JPG','photos/image 13.JPG','photos/image 14.JPG',
+          'photos/image 15.JPG', 'photos/image 16.JPG','photos/image 17.JPG'
+  
+         // Add more image URLs as needed
+        ];
+        let currentIndex = 0;
+
+        document.getElementById('main-button').addEventListener('click', () => {
+          // Flash the light
+          light.classList.remove('flash-animation');
+          setTimeout(() => {
+            light.classList.add('flash-animation');
+          }, 500);
+
+          // Eject the photo and change its image
+          eject.classList.remove('eject-photo');
+          setTimeout(() => {
+            eject.classList.add('eject-photo');
+            currentIndex = (currentIndex + 1) % photoArray.length;
+            const photoImage = document.getElementById('photo-image'); // Get the image element
+            photoImage.src = photoArray[currentIndex]; // Update the image source
+          }, 500);
+          
+          if (currentIndex === photoArray.length - 1) { // Check if it's the last photo (17th)
+            const popup = document.getElementById('popup');
+            popup.classList.add('show'); // Show the popup
+          
+            // Add a click event listener to the close button
+            const closeButton = document.querySelector('.close-button');
+            closeButton.addEventListener('click',   
+        () => {
+              popup.classList.remove('show'); // Hide the popup
+            });
+          }
+
+          
+
+
+
+
+        });
+  
+        </script>
+        
+   
+</body>
+</html>

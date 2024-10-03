@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letters to Saturn</title>
+    <link rel="stylesheet" href="css/letters.css">
+</head>
+<body>
+    <div id="grid-container">
+        <div id="popup" class="hidden">
+            <p>Welcome to the collection of <br>Letters to Saturn! <br> Each envelope holds different messages, <br> enjoy reading! &#129680;</p>
+            <button class="close-button">Close</button>
+          </div>
+        <div id="envelopes">
+
+            <div class="stack">
+            
+
+
+                <div>
+                    <div class="card one"> 
+                        <a href="letter5.html">
+                    <div class="seal-flap"><img src="smiley.png" alt="smiley face sticker" width="30px" height="30px"></div>
+                    </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card two">
+                        <a href="letter4.html">
+                    <div class="seal-flap"><img src="smiley.png" alt="smiley face sticker" width="30px" height="30px"></div>
+                    </a>
+                </div>
+                </div>
+
+                <div>
+                    <div class="card three">
+                        <a href="letter3.html">
+                    <div class="seal-flap"><img src="smiley.png" alt="smiley face sticker" width="30px" height="30px"></div>
+                      </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card four">
+                        <a href="letter2.html">
+                    <div class="seal-flap"><img src="smiley.png" alt="smiley face sticker" width="30px" height="30px"></div>
+                    </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card five">
+                    <a href="letter1.html">
+                    <div class="seal-flap"><img src="smiley.png" alt="smiley face sticker" width="30px" height="30px"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        </div>
+  </div>  
+    <script>
+        window.onload = function() {
+            const popup = document.getElementById('popup');
+            popup.classList.add('show');
+
+            const closeButton = document.querySelector('.close-button');
+            closeButton.addEventListener('click', () => {
+            popup.classList.remove('show');   
+
+            });
+        };
+    </script>
+</body>
+</html>
+
+<!-- add JS pop up message when entering this page also add html links to every letter-->

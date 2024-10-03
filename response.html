@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/landing.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>-Love,A.B</title>
+</head>
+<body>
+    
+        
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+              
+                <div class="letter">
+                    <form action="https://script.google.com/macros/s/AKfycbwmzmYeszqGF1YEoybnH-26kWqiuobHyoiYKmU1Iq4LiwAj07CrQfl8k_zMUGrevaML/exec" method="post" id="message-form">
+                        <div class="text">
+                            <input name="message" id="message" type="text" rows="5">
+                            <button type="submit" id="submit-button">send</button>
+                            
+                    </form> </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+        <div class="section"> 
+            <ul>
+                
+                <li><a href="letters.html" button class="button">Read more letters</a></li>
+                <li><a href="landing.html" button class="button">Home</a></li>
+            </ul>
+            
+           </div>
+        
+    </div>
+    
+ <script>
+     const envelope = document.querySelector('.envelope-wrapper');
+        let isFlapOpen = false;
+
+    envelope.addEventListener('click', () => {
+            if (!isFlapOpen) {
+                envelope.classList.add('flap');
+                isFlapOpen = true;
+            }
+    });
+        $(document).ready(function() {
+      $("#message-form").submit(function(event) {
+        event.preventDefault();
+
+        const message = $("#message").val();
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://script.google.com/macros/s/AKfycby58Slfn9aowrak0S-y8rYClkKO2cizBl89etSNDBXA4mWQy1IqtL0NetGEfeSylyw/exec");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            if (response.result === "success") {
+              $("#message").val("");
+              alert("Message Sent!"); // Optional: Show a success message
+             window.location.reload();
+            } else {
+              alert("Error sending message: " + response.error);
+            }
+          } else {
+            alert("Error sending message: " + xhr.statusText);
+          }
+        };
+        const data = encodeURIComponent("message") + "=" + encodeURIComponent(message);
+        xhr.send(data);
+      });
+    });
+    
+    
+    </script>
+   
+
+</body>
+</html>
